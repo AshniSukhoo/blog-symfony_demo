@@ -1,0 +1,36 @@
+{% extends 'admin/post/form_layout.html.twig' %}
+
+{% block title %}
+    list posts
+{% endblock %}
+
+{%  block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pull-right" style="margin-bottom:10px; margin-top: 20px;">
+                    <a href="{{ path('admin_new_post') }}" class="btn btn-primary pull-right">Add <span class="fa fa-plus-circle"></span></a>
+                </div><!-- pill-right-->
+
+                <h1>Posts</h1>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Post</th>
+                        <th>Action</th>
+                        <th>&nbsp;</th>
+                    </tr>
+
+                    {% for post in posts %}
+                        <tr>
+                            <td>{{ post.title }}</td>
+                            <td>
+                                <a href="{{ path('admin_edit_post', {'slug': post.slug}) }}" class="btn btn-xs btn-success"><span class="fa fa-pencil"></span>Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table><!-- table>
+            </div><!-- col-xs-12-->
+        </div><!-- row-->
+    </div><!--container -->
+{%  endblock %}

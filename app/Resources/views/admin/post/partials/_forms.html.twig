@@ -1,0 +1,25 @@
+{{ form_start(postForm) }}
+
+    {{ form_row(postForm.title) }}
+    {{ form_row(postForm.content) }}
+    {{ form_row(postForm.excerpt,
+        {
+            'label':'Summary'
+        })
+    }}
+    {{ form_row(postForm.tag) }}
+    {{ form_row(postForm.status) }}
+
+{%  if %}
+    {{ form_row(postForm.image) }}
+
+{% else %}
+    <a href="{{ asset('uploads/images/' ~ postForm.image) }}">View image</a>
+{% endif %}
+
+    {{ form_row(postForm.slug) }}
+
+
+<button type="submit" class="btn btn-primary" formnovalidate>Save</button>
+
+{{ form_end(postForm) }}

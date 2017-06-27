@@ -17,14 +17,14 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        //call entity manager
+      /*  //call entity manager
         $em = $this->getDoctrine()->getManager();
 
         //get list of 10 last post vie query in repo
         $posts = $em->getRepository()->callMethodQuery();
 
 
-        return new Response('hello there');
+        return new Response('hello there');*/
 
     }
 }

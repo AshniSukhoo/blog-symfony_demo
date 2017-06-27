@@ -1,0 +1,18 @@
+{% extends 'admin/post/form_layout.html.twig' %}
+
+{%  block title %}
+    Edit post
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Edit Post</h1>
+
+                {{ include('admin/post/partials/_forms.html.twig') }}
+
+            </div><!-- col-xs-12-->
+        </div><!-- row -->
+    </div><!-- container -->
+{% endblock %}
