@@ -1,0 +1,38 @@
+{% extends 'admin/post/form_layout.html.twig' %}
+
+{% block title %} categories {% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1> Categories:</h1>
+            </div><!col-xs-->
+        </div><!--row-->
+
+        <div class="row">
+            <div class="widget-content">
+                <table class="table table-bordered bg-warning" >
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                    </thead><!--thread-->
+
+                    <tbody>
+                    {% for category in categories %}
+                        <tr>
+                            <td>
+                                {{ category.name }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody><!--tbody-->
+                </table>
+
+            </div><!--row-->
+        </div><!--row-->
+    </div> <!--conatiner -->
+
+{% endblock %}

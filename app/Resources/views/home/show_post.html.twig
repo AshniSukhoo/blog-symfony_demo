@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Post {{ post.title }} {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1> {{ post.title }}</h1>
+            </div><!col-xs-->
+        </div><!--row-->
+
+        <div class="row">
+            <div class="widget-content">
+                <table class="table table-bordered bg-warning" >
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Summery</th>
+                        <td>Tags</td>
+                        <th>Image</th>
+                    </tr>
+                    </thead><!--thread-->
+
+                    <tbody>
+                    <tr>
+                        <td>{{ post.title }}</td>
+                        <td> {{ post.content}}</td>
+                        <td>
+                            {{ post.excerpt }}
+                        </td>
+                        <td> {{ post.tag }}</td>
+                        <td>
+                            {%  if post.image is empty %}
+                                No Images attached
+                            {% else %}
+                                <img src="{{ asset('uploads/images/' ~ post.image) }}" class="img-responsive">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </tbody><!--tbody-->
+                </table><!--table-->
+
+            </div><!--wid-->
+
+        </div><!--row-->
+
+
+    </div><!--container-->
+
+{% endblock %}

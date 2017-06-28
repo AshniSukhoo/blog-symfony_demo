@@ -10,14 +10,13 @@
     {{ form_row(postForm.tag) }}
     {{ form_row(postForm.status) }}
 
-{%  if %}
+{%  if postForm.image.vars.data is not empty %}
+    <img src="{{ asset('uploads/images/' ~ postForm.image.vars.data)}}" class="img-responsive" >
+{% endif %}
     {{ form_row(postForm.image) }}
 
-{% else %}
-    <a href="{{ asset('uploads/images/' ~ postForm.image) }}">View image</a>
-{% endif %}
-
     {{ form_row(postForm.slug) }}
+
 
 
 <button type="submit" class="btn btn-primary" formnovalidate>Save</button>

@@ -9,7 +9,7 @@ use AppBundle\Entity\Category;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  * @ORM\Table(name="posts")
  */
 class Post
@@ -69,6 +69,33 @@ class Post
      * @ORM\Column(type="string", unique=true)
      */
     private $slug;
+
+    /**
+     * @Assert\DateTime()
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
 
 
 //    /**

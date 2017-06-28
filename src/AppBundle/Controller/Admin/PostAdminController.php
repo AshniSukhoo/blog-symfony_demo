@@ -59,20 +59,24 @@ class PostAdminController extends Controller
             /** @var UploadedFile $file */
             $file = $post->getImage();
 
-            // Generate a unique name for the file before saving it
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            //check for image
+            if (isset($file)){
+                // Generate a unique name for the file before saving it
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
 
-            // Move the file to the directory where brochures are stored
-            $file->move(
-                $this->getParameter('images_directory'),
-                $fileName
-            );
+                // Move the file to the directory where brochures are stored
+                $file->move(
+                    $this->getParameter('images_directory'),
+                    $fileName
+                );
 
-            // Update the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $post->setImage($fileName);
+                // Update the 'images' property to store the file name
+                // instead of its contents
+                $post->setImage($fileName);
+            }
 
-            // ... persist the $product variable or any other work
+
+            // ... persist the post variable or any other work
 
             //called doc manager
             $em = $this->getDoctrine()->getManager();
